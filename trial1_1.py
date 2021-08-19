@@ -134,7 +134,7 @@ class Cp(ttk.Frame):
 
 
 
-def cp_text():
+def cp_text_example():
     cpane = Cp(root, 'Expanded', 'Collapsed')
     cpane.grid(row = 0, column = 0)
 
