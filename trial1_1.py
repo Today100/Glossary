@@ -242,7 +242,6 @@ def add_to_listbox(e=None):
 
 
 
-
 def advance_table():
     global beight
     try:
