@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox as ms
 import trial1
 
-root = Tk()
+
 
 
 
