@@ -3,10 +3,29 @@ from tkinter import ttk
 from tkinter import messagebox as ms
 import trial1
 
-root = Tk()
+
+#region
+
+# app_w = root.winfo_screenwidth()
+
+# app_h = root.winfo_screenheight()
+
+
+# screen_w = root.winfo_screenwidth()
+# screen_h = root.winfo_screenheight()
+
+# x = (screen_w/2) - (app_w/2)
+# y = (screen_h/2) - (app_h/2)
+
+# root.geometry(f'{app_w}x{app_h}+{int(x)}+{int(y)}')
+# root.attributes('-fullscreen', True)
+#endregion
 
 
 
+"""
+Classes:
+"""
 
 class Tip(object):
     """
@@ -131,6 +150,25 @@ class Cp(ttk.Frame):
 		self._variable.set(not self._variable.get())
 		self._activate()
 
+class FSA(object):
+    def __init__(self, master, **kwargs):
+        self.master=master
+        pad=3
+        self._geom='200x200+0+0'
+        master.geometry("{0}x{1}+0+0".format(
+            master.winfo_screenwidth()-pad, master.winfo_screenheight()-pad))
+        master.bind('<Escape>',self.toggle_geom)            
+    def toggle_geom(self,event):
+        geom=self.master.winfo_geometry()
+        print(geom,self._geom)
+        self.master.geometry(self._geom)
+        self._geom=geom
+
+class Z(object):
+    def __init__(self, master, **kwargs):
+        self.master=master
+        self.master.state('zoomed')
+
 
 def cp_text_example():
     cpane = Cp(root, 'Expanded', 'Collapsed')
@@ -144,3 +182,31 @@ def cp_text_example():
     cb1 = Checkbutton(cpane.frame, text ="GFG").grid(
                     row = 2, column = 3, pady = 10)
 
+
+
+"""
+Codes:
+"""
+
+root = Tk()
+Z(root)
+
+frame1 = LabelFrame(root)
+frame1.pack()
+
+b = Button(frame1, text='ello')
+b.pack(padx=3, pady=3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+mainloop()
