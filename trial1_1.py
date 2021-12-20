@@ -2,7 +2,7 @@ import sqlite3
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as ms
-
+import textwrap
 import trial1
 root = Tk()
 
@@ -132,6 +132,11 @@ class Cp(ttk.Frame):
 		self._variable.set(not self._variable.get())
 		self._activate()
 
+class wrap(str):
+    def __init__(self, string):
+        self.string = string
+    def length(self, length):
+        return '\n'.join(textwrap.wrap(self.string, int(length)))
 
 
 def cp_text_example():
@@ -145,6 +150,7 @@ def cp_text_example():
 
     cb1 = Checkbutton(cpane.frame, text ="GFG").grid(
                     row = 2, column = 3, pady = 10)
+
 
 
 
@@ -1035,7 +1041,7 @@ def delete_info1():
     dinfo_op1 = trial1.show_table_info(dinfo_e1.get())
     dinfo_op = []
     for x in dinfo_op1:
-        dinfo_op.append(x[0])
+        dinfo_op.append(x[0:2])
     dinfo_la2 = Label(beighteen, text='Please enter the id')
     global dinfo_cb
     dinfo_cb = ttk.Combobox(beighteen, value=dinfo_op)
@@ -1540,7 +1546,7 @@ def update4(data):
 
 
 def treeview_list(t): 
-    #table name, column many number, column name, info
+    #table name
 
     c = trial1.column_number(t)
     cn = trial1.get_column_name(t)

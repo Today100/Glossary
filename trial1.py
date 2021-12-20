@@ -309,7 +309,8 @@ def advance_search_in_table(n, x, k):
 
 
 def basic_search(n, x):
-    c.execute("""SELECT rowid, * FROM [""" + n + """] WHERE [""" + n + """] MATCH ['""" + x + "\']")
+    
+    c.execute("""SELECT rowid, * FROM """ + n + """ WHERE """ + n + """ MATCH '""" + x + """*'""")
     item = c.fetchall()
     conn.commit()
     return item
