@@ -4,6 +4,7 @@ from PIL import Image,ImageTk, ImageGrab
 import os
 from tkinter import filedialog
 
+
 class drbo():
     "A tkinter drawing board"
     def __init__(self, tkinterwindow):
@@ -302,14 +303,21 @@ class drbo():
         # image = Image.open(self.main.postscript(file='canva.ps', colormode='color'))
         # image.save(savefile)
         x=self.window.winfo_rootx()+self.main.winfo_x()
+        print(x)
         y=self.window.winfo_rooty()+self.main.winfo_y()
+        print(y)
         x1=x+self.main.winfo_width()
+        print(x1)
         y1=y+self.main.winfo_height()
+        print(y1)
         # print(list(savefile))
         newpath = str(savefile).split()[1]
         newpath = newpath.split("'")
-    
-        ImageGrab.grab().crop((x+10,y+5,x1-15,y1-15)).save(newpath[1])
+        print(newpath)
+        print(newpath[1])
+        # ImageGrab.grab().crop((x+10,y+5,x1-15,y1-15)).save(newpath[1])
+        ImageGrab.grab().crop((x+8,y+5,x1+5,y1+1)).save(newpath[1])
+
         return
 
 
