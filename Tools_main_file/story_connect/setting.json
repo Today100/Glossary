@@ -1,0 +1,21 @@
+{
+    "save_setting" : true, 
+
+    "check_setting" : "No", 
+
+    "total_voc" : 5, 
+
+    "load" : "auto", 
+
+    "word_limit" : 300, 
+
+    "word_min" : 20, 
+
+    "after_write" : "red", 
+
+    "before_write" : "black", 
+
+    "time_limit" : null, 
+
+    "check_settng" : "No"
+}
