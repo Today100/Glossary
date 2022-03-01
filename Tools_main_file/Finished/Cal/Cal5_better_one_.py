@@ -20,8 +20,8 @@ class cal():
         self.frame2.grid(column=1, row=0)
         self.frame2.place(x=300, y=10)
 
-        self.be = Entry(self.frame1, width=30, font='Jans')
-        self.be2 = Entry(self.frame2, width=30, font='Jans')
+        self.be = Entry(self.frame1, width=30, font='Jans', name="type"+str(self.nenu))
+        self.be2 = Entry(self.frame2, width=30, font='Jans', name="ans"+str(self.nenu))
         self.be.grid(row=self.nenu)
         self.be2.grid(row=self.nenu)
 
@@ -172,7 +172,10 @@ class cal():
                     pass
                 # if type(n_n) is int:
                 try:
-                    self.variables[letters] = float(n_n)
+                    if self.av not in letters:
+                        pass
+                    else:
+                        self.variables[letters] = float(n_n)
                 except:
                     pass
                 n_s = n_n
@@ -194,15 +197,19 @@ class cal():
         return
     
     def get_n(self, e):
+        # print(self.dic)
+        # print(self.dic2)
+        # print(self.cid)
+        # print(self.cid2)
         for key, value in self.dic.items():
             if self.root.focus_get() == value:
                 self.returnm(key)
-                return 
+                return
 
     def returnm(self, n):
         global nenu
-        ne = Entry(self.frame1, width=30, font='Jans')  
-        bl = Entry(self.frame2, width=30, font='Jans')
+        ne = Entry(self.frame1, width=30, font='Jans', name="type"+str(self.nenu))  
+        bl = Entry(self.frame2, width=30, font='Jans', name="ans"+str(self.nenu))
         ne.focus()
         ne.bind('<Return>', self.get_n)
         ne.bind('<Up>', self.sele_up)
@@ -253,7 +260,7 @@ class cal():
                     if TEMV and TE:
                         # print('it is TEMV')
                         self.dic[n] = TEMV
-                        print(TEMV)
+                        # print(TEMV)
                         self.dic2[n] = TE
                         self.cid[TEMV] = n
                         self.cid2[TE] = n

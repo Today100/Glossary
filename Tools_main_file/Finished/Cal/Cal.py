@@ -1,4 +1,3 @@
-import math
 from tkinter import *
 from tkinter import ttk
 from tkinter import font
@@ -20,8 +19,8 @@ class cal():
         self.frame2.grid(column=1, row=0)
         self.frame2.place(x=300, y=10)
 
-        self.be = Entry(self.frame1, width=30, font='Jans', name="type"+str(self.nenu))
-        self.be2 = Entry(self.frame2, width=30, font='Jans', name="ans"+str(self.nenu))
+        self.be = Entry(self.frame1, width=30, font='Jans')
+        self.be2 = Entry(self.frame2, width=30, font='Jans')
         self.be.grid(row=self.nenu)
         self.be2.grid(row=self.nenu)
 
@@ -194,19 +193,15 @@ class cal():
         return
     
     def get_n(self, e):
-        print(self.dic)
-        print(self.dic2)
-        print(self.cid)
-        print(self.cid2)
         for key, value in self.dic.items():
             if self.root.focus_get() == value:
                 self.returnm(key)
-                return
+                return 
 
     def returnm(self, n):
         global nenu
-        ne = Entry(self.frame1, width=30, font='Jans', name="type"+str(self.nenu))  
-        bl = Entry(self.frame2, width=30, font='Jans', name="ans"+str(self.nenu))
+        ne = Entry(self.frame1, width=30, font='Jans')  
+        bl = Entry(self.frame2, width=30, font='Jans')
         ne.focus()
         ne.bind('<Return>', self.get_n)
         ne.bind('<Up>', self.sele_up)
