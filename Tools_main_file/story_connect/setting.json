@@ -17,5 +17,9 @@
 
     "time_limit" : null, 
 
-    "check_settng" : "No"
+    "check_settng" : "No", 
+
+    "names" : {}, 
+
+    "first load" : true
 }
