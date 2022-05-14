@@ -11,6 +11,8 @@ Glossary is an enhanced program of the contact book. It is a program that you co
 
 It includes two files, "trial1_1.py" is the GUI(graphic user interface) and "trial1.py" which stores the SQL functions.
 
+Please checkout the executable application in the release page. https://github.com/Today100/Glossary/releases
+
 ### Program two: Multi-tools
 
 Multi-tools is a program that includes many other tools such as a drawing board, a notebook calculator, an image to base64 converter, and a note editor. 
@@ -20,6 +22,8 @@ Some other tools are also developing such as a todo-list, login program, a cyphe
 The glossary program will soon be added to this Multi-tools program.
 
 The two main files of this program are "trial1_2.py", which includes the GUI and the tools used for the program, and "trial12.py", a copy of "trial1.py" that is specifically used for this program (Since I haven't combined the glossary program with the Multi-tools yet, because I have to recreate all the GUI, "trial12.py" is currently not necessary.). 
+
+Please checkout the executable application in the release page. https://github.com/Today100/Glossary/releases
 
 ### The "Tools main file" folder:
 
