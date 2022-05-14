@@ -10,7 +10,7 @@ for x in equation:
     if x not in characters:
         letter[x] = ""
         if x == "(":
-            if equation[count-1] not in "+-/" and count != 0:
+            if equation[count-1] not in "+-/t" and count != 0:
                 letter[x] = "*("
             else:
                 letter[x] = "("
@@ -37,4 +37,4 @@ for letters in letter.keys():
 
 print(letter)
 print(equation)
-print(equation, "=", numexpr.evaluate(str(equation)))
+print(equation, "=", numexpr.evaluate(str("sqrt(" + equation +")")))

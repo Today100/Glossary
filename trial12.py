@@ -1,5 +1,4 @@
 import sqlite3
-from sqlite3.dbapi2 import OperationalError
 from tkinter import *
 
 conn = sqlite3.connect('all.db')

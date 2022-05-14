@@ -178,7 +178,7 @@ def insert_info(z, argu):
     la = ','.join(la)
     la = '(' + la + ')'
     
-    
+    print(z, la, argu)
     c.execute("INSERT INTO [" + z + "] VALUES " + la, (argu))
     conn.commit()
     return

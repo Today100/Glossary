@@ -4,7 +4,14 @@ from tkinter import ttk
 from tkinter import messagebox as ms
 import textwrap
 import trial1
+
+try:
+    import pyi_splash
+    pyi_splash.update_text("Welcome! Please wait for a while for the app to load. Thank you!")
+except:
+    pass
 root = Tk()
+root.eval('tk::PlaceWindow . center')
 
 
 
@@ -165,6 +172,7 @@ def modify_table():
     except:
         pass
     bone = Toplevel()
+    # root.eval(f'tk::PlaceWindow {str(bone)} center')
     B7 = Button(bone, text="Create table", command=creat_table)
     B8 = Button(bone, text="Delete table", command=delete_table)
     B9 = Button(bone, text="Rename table", command=rename_table)
@@ -1987,6 +1995,8 @@ B6.grid(row=5,column=0)
 
 
 
-
-
+try:
+    pyi_splash.close()
+except:
+    pass
 root.mainloop()

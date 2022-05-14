@@ -19,7 +19,109 @@
 
     "check_settng" : "No", 
 
-    "names" : {}, 
+    "established database" : true, 
 
-    "first load" : true
+    "database path" : "e:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\MainStoryFiles.db", 
+
+    "backup database" : false, 
+
+    "backup database path" : "", 
+
+    "names" : {
+        "one" : [
+            "e:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\Story\\one.txt"
+        ], 
+
+        "two" : [
+            "e:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\Story\\two.txt", 
+
+            {
+                "akin to" : [
+                    "\u6709\u5bc6\u5207\u5173\u7cfb\u7684", 
+
+                    "NaN"
+                ], 
+
+                "acumen" : [
+                    "\u654f\u9510\uff0c\u806a\u660e", 
+
+                    "acuteness, insight"
+                ], 
+
+                "assimilate" : [
+                    [
+                        "\u5b66\u4e60\uff0c\u5438\u6536\uff08\u77e5\u8bc6\uff09", 
+
+                        "understand, grasp"
+                    ], 
+
+                    [
+                        "\u5403\uff0c\u5438\u6536", 
+
+                        "absorb"
+                    ]
+                ], 
+
+                "cast off" : [
+                    "\u4e22\u5f03\uff0c\u6446\u8131", 
+
+                    "get rid of"
+                ], 
+
+                "dignity" : [
+                    "\u5c0a\u4e25\uff0c\u9ad8\u8d35", 
+
+                    "nobility, honor"
+                ]
+            }
+        ], 
+
+        "three" : [
+            "e:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\Story\\three.txt", 
+
+            {
+                "counterbalance" : [
+                    "\u4f7f\u5e73\u8861", 
+
+                    NaN
+                ], 
+
+                "boulder" : [
+                    "\u5de8\u77f3", 
+
+                    "rock, fieldstone"
+                ], 
+
+                "converge" : [
+                    "\u805a\u5408\uff0c\u96c6\u4e2d\u4e8e\u4e00\u70b9\uff0c\u4f1a\u805a", 
+
+                    "meet, come together"
+                ], 
+
+                "constellation" : [
+                    [
+                        "\u661f\u5ea7", 
+
+                        NaN
+                    ], 
+
+                    [
+                        "\u707f\u70c2\u7684\u4e00\u7fa4", 
+
+                        "gathering, cluster"
+                    ]
+                ], 
+
+                "abrasive" : [
+                    "\u7814\u78e8\u7684", 
+
+                    NaN
+                ]
+            }
+        ]
+    }, 
+
+    "first load" : true, 
+
+    "estabilished database" : true
 }

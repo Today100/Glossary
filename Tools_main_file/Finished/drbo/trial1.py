@@ -297,6 +297,8 @@ class drbo():
                     count += 1
                     count2 = 0
 
+
+
     def save(self, event):
         savefile = filedialog.asksaveasfile(defaultextension='.png', filetypes=(('image files', '*.jpg'), ('image file2', '*.png')))
         # self.main.update()
@@ -310,13 +312,15 @@ class drbo():
         print(x1)
         y1=y+self.main.winfo_height()
         print(y1)
-        # print(list(savefile))
-        newpath = str(savefile).split()[1]
-        newpath = newpath.split("'")
+
+        print(str(savefile))
+        newpath = savefile.name
+        # newpath = newpath.split("'")
         print(newpath)
         print(newpath[1])
+        # correct_path = self.generate_imgae(newpath[1])
         # ImageGrab.grab().crop((x+10,y+5,x1-15,y1-15)).save(newpath[1])
-        ImageGrab.grab().crop((x+8,y+5,x1+5,y1+1)).save(newpath[1])
+        ImageGrab.grab().crop((x+8,y+5,x1+5,y1+1)).save(newpath)
 
         return
 

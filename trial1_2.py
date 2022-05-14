@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as ms
 import textwrap
-import trial12
+# import trial12
 from win32api import *
 from win32gui import *
 import win32con
@@ -15,6 +15,12 @@ from pandas.io import clipboard
 from tkinter import filedialog, font, colorchooser
 import numexpr
 from PIL import Image,ImageTk, ImageGrab
+
+try:
+    import pyi_splash
+    # pyi_splash.update_text("Welcome! Please wait for a while for the app to load. Thank you!")
+except:
+    pass
 
 
 #region
@@ -783,6 +789,7 @@ class drbo():
     "A tkinter drawing board"
     def __init__(self, tkinterwindow):
         self.window = tkinterwindow
+        self.window.transient(root)
         self.window.geometry("500x500")
         self.Fone = ttk.Labelframe(self.window)
         self.Fone.grid(row=0, columnspan=2, padx=6, pady=3)
@@ -1085,12 +1092,14 @@ class drbo():
         y1=y+self.main.winfo_height()
         print(y1)
         # print(list(savefile))
-        newpath = str(savefile).split()[1]
-        newpath = newpath.split("'")
+        newpath = savefile.name
+        # newpath = newpath.split("'")
         print(newpath)
-        print(newpath[1])
+        # print(newpath[1]+".png")
+        # self.window.focus()
         # ImageGrab.grab().crop((x+10,y+5,x1-15,y1-15)).save(newpath[1])
-        ImageGrab.grab().crop((x+8,y+5,x1+5,y1+1)).save(newpath[1])
+
+        ImageGrab.grab().crop((x+8,y+5,x1+5,y1+1)).save(newpath)
 
         return
 
@@ -1338,6 +1347,7 @@ Codes:
 root = Tk()
 Zm(root)
 
+
 APP_W = root.winfo_screenwidth()
 APP_H = root.winfo_screenheight()
 
@@ -1365,4 +1375,8 @@ mainmenu.add_cascade(label='Tool', menu=tool)
 
 
 root.config(menu=mainmenu)
+try:
+    pyi_splash.close()
+except:
+    pass
 root.mainloop()

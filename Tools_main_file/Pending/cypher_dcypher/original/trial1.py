@@ -30,8 +30,9 @@ import pickle
 ##pickle.dump(library, pickle_out)
 ##pickle_out.close()
 
-pickle_in = open("messages", "rb")
+pickle_in = open("E:\\1.Python_f\\Glossory\\Tools_main_file\\Pending\\cypher_dcypher\\original\\messages", "rb")
 library = pickle.load(pickle_in)
+print(library)
 
 letter = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 quotation = ("`~!@#$%^&*()_+-=[]{};':\"|,./<>?")
@@ -101,8 +102,11 @@ def stm():
             print(nm)
             library[nm] = nl
             with open("messages", "wb") as pic:
-                    pickle.dump(library, pic)
-            
+                print("dumping")
+                # lib = open("E:\\1.Python_f\\Glossory\\Tools_main_file\\Pending\\cypher_dcypher\\original\\messages", "w")
+                pickle.dump(library, pic)
+                print(library)
+                print("dumped")            
     
 def dtm():
     typ = True

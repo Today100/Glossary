@@ -1,11 +1,14 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
+# from django.conf import settings
 import pandas as pd
 import random
 import pickle
 import json
 import sqlite3
 import sys
+import os
 
 
 root = Tk()
@@ -19,16 +22,50 @@ sh = root.winfo_screenheight()
 # read_file = open("E:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\setting.json", "w")
 
 
+
+
+
 setting = json.load(open("E:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\setting.json"))
+
+
+def du(e=None):
+    write_file = open("E:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\setting.json", "w")
+    json.dump(setting, write_file, indent=4, separators=(", \n", " : "))
+
+
+
+try:
+    os.mkdir(os.path.join(os.path.dirname(__file__), "Story"))
+    setting["first load"] = False
+except:
+    pass
+
+du()
+
 
 main_m = Menu(root)
 syst_m = Menu(main_m, tearoff=0)
+note_m = Menu(main_m, tearoff=0)
 
 main_m.add_cascade(label="main", menu=syst_m)
+main_m.add_cascade(label="notes", menu=note_m)
 root.config(menu=main_m)
 
+def open_note(path):
+    note_window = Toplevel()
+    note_pad = Text(note_window)
+    note_pad.pack(expand=True, fill="both")
+    note_file = open(path, "r")
+    note_texts = note_file.readline()
+    note_pad.insert(END, note_texts)
+    
+    print(path)
 
+def note_load():
+    for note, path in setting["names"].items():
+        note_m.add_command(label=note, command=lambda path = path: open_note(path))
 
+note_load()
 
 m = Menu(root, tearoff = 0)
 m.add_separator()
@@ -78,8 +115,38 @@ def saveTwo(name=None, window=None):
     window.destroy()
     if theTitlename:
         print(theTitlename)
-    for word in main.get("1.0", END):
-        pass
+    
+    file = "Story\\" + theTitlename + ".txt"
+    total_path = os.path.join(os.path.dirname(__file__), file)
+    # os.mkdir(os.curdir())
+
+
+    # total_path = total_path[:1].upper() + total_path[1:]
+    titles = setting["names"]
+    if theTitlename in titles:
+        ms = messagebox.askyesno(title="File appears duplicate", message="There is already a file has the same name, do you want to replace it?")
+        print(ms)
+        if ms:
+            titles.append(theTitlename)
+            sto = open(total_path, "w")
+            for word in main.get("1.0", END):
+                sto.write(word)
+            du()
+        else:
+            ms_two = messagebox.askyesno(title=None, message="Do you want to change a title(yes) or discard save?(no)")
+            if ms_two:
+                save(None)
+            
+    else:
+        titles[theTitlename] = [total_path]
+        sto = open(total_path, "w")
+        for word in main.get("1.0", END):
+            sto.write(word)
+        du()
+    
+    note_load()
+
+    
 
 def save(e):
     thewin = Toplevel()
@@ -399,9 +466,7 @@ def check(tick):
     # json.dump(setting, write_file, indent=4, separators=(", \n", " : "))
     du()
 
-def du(e=None):
-    write_file = open("E:\\1.Python_f\\Glossory\\Tools_main_file\\story_connect\\setting.json", "w")
-    json.dump(setting, write_file, indent=4, separators=(", \n", " : "))
+
 
 def set_up():
     global ques, temp, thread, stop, che
